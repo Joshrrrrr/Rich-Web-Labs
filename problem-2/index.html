@@ -1,7 +1,5 @@
-<!-- C19303023 Josh Reilly 26/09/22-->
+<!-- C19303023 Josh Reilly 03/10/22-->
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
     <!-- Using jsDelivr for cached version of of bootstrap-->
 	<link rel="stylesheet" href=
@@ -30,7 +28,6 @@
             crossorigin="anonymous">
     </script>
 </head>
-
 <body>
 	<nav class="navbar navbar-expand-lg
 				navbar-dark bg-dark">
@@ -47,6 +44,7 @@
 				<h5 class="card-title">
 					Add a Note
 				</h5>
+				<!-- text form for note-->
 				<div class="form-group">
 					<textarea class="form-control"
 						id="addTxt">
@@ -56,18 +54,20 @@
 					id="addBtn">
 					Add Note
 				</button>
+				<button class="btn btn-secondary"
+					id="blue" value="blue" onclick="blue()">
+					blue
+				</button>
+				<button class="btn btn-secondary"
+					id="red" value="red" onclick="red()">
+					red
+				</button>
+				<button class="btn btn-secondary"
+					id="green" value="green" onclick="green()">
+					green
+				</button>
 			</div>
 		</div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
-              Color
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item active" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
 		<hr>
 		<h2>Notes</h2>
 		<hr>
