@@ -1,75 +1,43 @@
 <!-- C19303023 Josh Reilly 03/10/22-->
 <!DOCTYPE html>
-<head>
-    <!-- Using jsDelivr for cached version of of bootstrap-->
-	<link rel="stylesheet" href=
-"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity=
-"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-		crossorigin="anonymous">
-    
-	<script src=
-"https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity=
-"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous">
-	</script>
-	
-	<script src=
-"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity=
-"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous">
-	</script>
-
-    <script src=
-    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity=
-    "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous">
-    </script>
+<head>  	
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg
-				navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">
-			<p style="font-size: 26px;">
-				problem-2
-			</p>
-		</a>
-	</nav>
-
-	<div class="container my-3">
+	<div style="margin: 150px">
 		<div class="card">
 			<div class="card-body">
-				<h5 class="card-title">
+				<h1 class="card-title">
 					Add a Note
-				</h5>
+				</h1>
 				<!-- text form for note-->
-				<div class="form-group">
+				<div class="form-group" style="margin: 50px">
 					<textarea class="form-control"
-						id="addTxt">
+						id="addTxt" style="width: 400px;height: 100px">
 					</textarea>
 				</div>
-				<button class="btn btn-secondary"
-					id="addBtn">
+				<button
+					id="addBtn" style="margin: 15px">
 					Add Note
 				</button>
-				<button class="btn btn-secondary"
-					id="blue" value="blue" onclick="blue()">
+				<button
+					id="blue" value="blue" onclick="blue()"
+					style="margin: 15px">
 					blue
 				</button>
-				<button class="btn btn-secondary"
-					id="red" value="red" onclick="red()">
+				<button
+					id="red" value="red" onclick="red()"
+					style="margin: 15px">
 					red
 				</button>
-				<button class="btn btn-secondary"
-					id="green" value="green" onclick="green()">
+				<button
+					id="green" value="green" onclick="green()"
+					style="margin: 15px">
 					green
 				</button>
 			</div>
 		</div>
 		<hr>
-		<h2>Notes</h2>
+		<h1>Notes</h1>
 		<hr>
 		<div id="notes" class=
 			"row container-fluid">
