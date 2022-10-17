@@ -10,26 +10,22 @@
 					Add Contact
 				</h1>
 				<!-- text form for note-->
-				<div class="form-group" style="margin: 50px">
-					<textarea class="form-control"
-						id="addTxt" style="width: 400px;height: 100px">
-					</textarea>
-					<tr>
-					<textarea class="form-control"
-						id="addTxt" style="width: 400px;height: 100px">
-					</textarea>
-					<textarea class="form-control"
-						id="addTxt" style="width: 400px;height: 100px">
-					</textarea>
+				<form>
+				<div class="form-group" style="width: 50%;margin:20px">
+					<textarea
+						id="name" style="margin-bottom:15px;width: 400px;height: 50px" required></textarea>
+					<textarea
+						id="mobile" style="margin-bottom:15px;width: 400px;height: 50px" required></textarea>
+					<textarea
+						id="email" style="margin-bottom:15px;width: 400px;height: 50px" required></textarea>
+						<br>
+					<input type="submit" value="Submit" id="addBtn" style="margin: 15px">
 				</div>
-				<button
-					id="addBtn" style="margin: 15px">
-					Add Note
-				</button>
+			</form>
 			</div>
 		</div>
 		<hr>
-		<h1>Notes</h1>
+		<h1>Contacts</h1>
 		<hr>
 		<div id="notes" class=
 			"row container-fluid">
