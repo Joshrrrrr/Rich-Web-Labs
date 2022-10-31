@@ -1,62 +1,64 @@
 //<!-- C19303023 Josh Reilly 03/10/22-->
-showNotes();
+var Contact = function (name, email, phone) {
+  this.name = name;
+  this.email = email;
+  this.phone = phone;
+};
+var contacts = [];
+var listContacts = function () {
+  document.getElementById("displayContacts").innerHTML = " ";
+  for (var i = 0; i < contacts.length; i++) {
+    document.getElementById("displayContacts").innerHTML +=
+      '<tr><td id="name' +
+      i +
+      '">' +
+      contacts[i].name +
+      '</td><td id="phone' +
+      i +
+      '">' +
+      contacts[i].phone +
+      '</td><td id="email' +
+      i +
+      '">' +
+      contacts[i].email +
+      '</td><td><button class="btn btn-danger" onclick=deleteContact(' +
+      i +
+      ")>Delete</button></td></tr>";
+  }
+};
 
-// If user adds a note add to the localStorage
-let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", function (e) {
-  let name = document.getElementById("name");
-  let mobile = document.getElementById("mobile");
-  let email = document.getElementById("email");
-  let notes = localStorage.getItem("notes");
-  if (notes == null) notesObj = [];
-  else notesObj = JSON.parse(notes);
-  let contact = [name.value,mobile.value,email.value]; 
-  notesObj.push(contact);
-  localStorage.setItem("notes", JSON.stringify(notesObj));
-  name.value = "";
-  mobile.value = "";
-  email.value = "";
+var addNewContact = function () {
+  var name = document.getElementById("inputName").value;
+  var email = document.getElementById("inputEmail").value;
+  var phone = document.getElementById("inputPhone").value;
+  var contact = new Contact(name, email, phone);
+  contacts.push(contact);
+  listContacts();
+};
 
-  showNotes();
-});
-// show elements from localStorage
-function showNotes() {
-  let notes = localStorage.getItem("notes");
+var deleteContact = function (i) {
+  contacts.splice(i, 1);
+  listContacts();
+};
 
-  if (notes == null) notesObj = [];
-  else notesObj = JSON.parse(notes);
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue, table;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("displayContacts");
+  noRes = document.getElementById("noResult");
 
-  let html = "";
-  // use internal css for the noteCards so changing the color and text is easy
-  notesObj.forEach(function (element, index) {
-    html += `<div class="noteCard"
-			style="width:18rem;margin-right: 50px;margin-bottom: 50px">
-				<div class="card-body">
-					<p class="card-text">${element}</p>
-				<button id="${index}" onclick=
-					"deleteNote(this.id)">
-					Delete
-				</button>
-			</div>
-		</div>`;
-  });
-
-  let notesElm = document.getElementById("notes");
-  // check if there are any notes in notesObj
-  if (notesObj.length != 0) notesElm.innerHTML = html;
-  else notesElm.innerHTML = "No contacts";
+  // Loop through all list items, and hide those who don't match the search query
+  for (var i = 0, row; (row = table.rows[i]); i++) {
+    txtValue = row.innerHTML;
+    if (txtValue.toUpperCase().includes(filter)) {
+      row.style.display = "";
+      noRes.style.display = "none";
+    } else {
+      row.style.display = "none";
+      noRes.style.display = "";
+    }
+  }
 }
-
-// delete a note
-function deleteNote(index) {
-  let notes = localStorage.getItem("notes");
-
-  if (notes == null) notesObj = [];
-  else notesObj = JSON.parse(notes);
-
-  notesObj.splice(index, 1);
-
-  localStorage.setItem("notes", JSON.stringify(notesObj));
-
-  showNotes();
-}
+listContacts();
