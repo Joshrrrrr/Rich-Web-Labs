@@ -1,55 +1,53 @@
 <!-- C19303023 Josh Reilly 17/10/22-->
-<!DOCTYPE html>
-<head> </head>
+<!DOCTYPE HTML5>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+	<script src="index.js"></script>
+</head>
 <body>
-  <h1 class="text-center">
+  <div style="text-align: center">
+  <h1 class="text-center" style="margin-top:40px">
     Phone Directory
-    <h1>
-      <br>
+    <br><br>
       <div class="form-inline">
-        Name:
-        <input placeholder="Name" 
-		class="form-control" 
-		id="inputName"
-		required
-		/>
-        Email:
+        <input placeholder="Contact Name"
+          type="text"
+          name="name"
+          class="form-control" 
+          id="inputName"/>
         <input
+          type="number"
+          name="phone"
+          placeholder="Mobile Number"
+          class="form-control"
+          id="inputPhone"/>
+        <input
+          type="email"
+          name="email"
           placeholder="Email"
           class="form-control"
-          id="inputEmail"
-		  required
-        />
-        Phone:
-        <input
-          placeholder="Number"
-          class="form-control"
-          id="inputPhone"
-		  required
-        />
-        <div id="submitButtons">
-          <button type="button" class="btn btn-info" onclick="addNewContact()">
-            Submit
-          </button>
-        </div>
-		<div id="error" style="display: none">
-		  <p>Bad inputs</p>
+          id="inputEmail"/>
+        <button type="button" class="btn btn-info" onclick="addNewContact()">
+          Add Contact
+        </button>
+		  <div id="error" style="display: none">
+		    Bad inputs
 	    </div>
-      </div>
+    </div>
 	  <br>
 	  <h3>
-	  <div class="form-inline">
-		Search contact by Mobile No:
-		<input type="text" id="myInput" onkeyup="myFunction()">
+	  <div>
+		  Search contact by Mobile No:
+		  <input type="number" id="myInput" onkeyup="search()">
 	  </div>
 	  <div id="noResult" style="display: none">
 	    <h3>No results</h3>
 	  </div>
-      <h3>Contacts Summary</h3>
-	
-      <table id="displayContacts" class="table">
-		
-	  </table>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-	  <script src="index.js"></script>
+    <br><br>
+    <h3>Contacts Summary</h3>
+    <table id="displayContacts" class="table">
+    </table>
+  </div>
 </body>
+</html>
