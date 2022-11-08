@@ -1,0 +1,28 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "observable.js",
+  "dependencies": {
+    "nodemon": "^2.0.20",
+    "rxjs": "^7.5.7",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.74.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joshrrrrr/lab1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joshrrrrr/lab1/issues"
+  },
+  "homepage": "https://github.com/Joshrrrrr/lab1#readme"
+}
