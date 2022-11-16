@@ -18,10 +18,23 @@ function add(){
 
   showNotes();
 };
+let blueBtn = document.getElementById("blue");
+rxjs.fromEvent(blueBtn, 'click')
+        .subscribe(() => blue()
+        );
+let redBtn = document.getElementById("red");
+rxjs.fromEvent(redBtn, 'click')
+        .subscribe(() => red()
+        );
+let greenBtn = document.getElementById("green");
+rxjs.fromEvent(greenBtn, 'click')
+        .subscribe(() => green()
+        );
 function blue() {
   color = document.getElementById("blue").value;
   showNotes();
 }
+
 function red() {
   color = document.getElementById("red").value;
   showNotes();
