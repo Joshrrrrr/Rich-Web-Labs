@@ -3,7 +3,10 @@ showNotes();
 // If user adds a note add to the localStorage
 var color = "white";
 let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", function (e) {
+rxjs.fromEvent(addBtn, 'click')
+        .subscribe(() => add()
+        );
+function add(){
   let addTxt = document.getElementById("addTxt");
   let notes = localStorage.getItem("notes");
   if (notes == null) notesObj = [];
@@ -14,7 +17,7 @@ addBtn.addEventListener("click", function (e) {
   addTxt.value = "";
 
   showNotes();
-});
+};
 function blue() {
   color = document.getElementById("blue").value;
   showNotes();
