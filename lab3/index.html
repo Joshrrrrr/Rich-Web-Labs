@@ -1,0 +1,48 @@
+<!-- C19303023 Josh Reilly 16/11/22-->
+<!DOCTYPE html>
+<head>	
+</head>
+<body>
+	<div style="margin: 150px">
+		<div class="card">
+			<div class="card-body">
+				<h1 class="card-title">
+					Add a Note
+				</h1>
+				<!-- text form for note-->
+				<div class="form-group" style="margin: 50px">
+					<textarea class="form-control"
+						id="addTxt" style="width: 400px;height: 100px">
+					</textarea>
+				</div>
+				<button
+					id="addBtn" style="margin: 15px">
+					Add Note
+				</button>
+				<button
+					id="blue" value="blue" onclick="blue()"
+					style="margin: 15px">
+					blue
+				</button>
+				<button
+					id="red" value="red" onclick="red()"
+					style="margin: 15px">
+					red
+				</button>
+				<button
+					id="green" value="green" onclick="green()"
+					style="margin: 15px">
+					green
+				</button>
+			</div>
+		</div>
+		<hr>
+		<h1>Notes</h1>
+		<hr>
+		<div id="notes" class=
+			"row container-fluid">
+		</div>
+	</div>
+	<script src="observable.js"></script>
+</body>
+</html>
