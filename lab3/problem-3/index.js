@@ -104,3 +104,10 @@ function deleteNote(index) {
 
   showNotes();
 }
+
+function addSubNote(note){
+  const childNote = document.createElement("textarea");
+  childNote.setAttribute("id", "subNote");
+  childNote.setAttribute("style", "background-color:#595959; color:white");
+  note.appendChild(childNote);
+}
