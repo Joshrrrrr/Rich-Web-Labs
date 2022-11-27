@@ -82,7 +82,7 @@ function showNotes() {
     //append button to the notebody element above
     notebody.appendChild(delBtn);
     rxjs.fromEvent(delBtn, 'click')
-        .subscribe(() => deleteNote(index)
+        .subscribe(() => deleteNote(delBtn, index)
         );
     //Create add sub note button element
     const subBtn = document.createElement('button');
@@ -91,7 +91,7 @@ function showNotes() {
     //append button to the notebody element above
     notebody.appendChild(subBtn);
     rxjs.fromEvent(subBtn, 'click')
-        .subscribe(() => addSubNote(subBtn.parentElement)
+        .subscribe(() => addSubNote(subBtn)
         );
   });
 
@@ -101,7 +101,7 @@ function showNotes() {
 }
 
 // delete a note
-function deleteNote(index) {
+function deleteNote(note, index) {
   let notes = localStorage.getItem("notes");
 
   if (notes == null) notesObj = [];
@@ -111,6 +111,7 @@ function deleteNote(index) {
 
   localStorage.setItem("notes", JSON.stringify(notesObj));
 
+  note.parentElement.remove();
   showNotes();
 }
 
@@ -118,5 +119,5 @@ function addSubNote(note){
   const childNote = document.createElement("textarea");
   childNote.setAttribute("id", "subNote");
   childNote.setAttribute("style", "background-color:#595959; color:white");
-  note.appendChild(childNote);
+  note.parentElement.appendChild(childNote);
 }
