@@ -1,10 +1,12 @@
 //<!-- C19303023 Josh Reilly 26/11/22-->
 showNotes();
-
 // If user adds a note add to the localStorage
 var color = "white";
 let addBtn = document.getElementById("addBtn");
-addBtn.addEventListener("click", function (e) {
+rxjs.fromEvent(addBtn, 'click')
+        .subscribe(() => add()
+        );
+function add(){
   let addTxt = document.getElementById("addTxt");
   let notes = localStorage.getItem("notes");
   if (notes == null) notesObj = [];
@@ -15,7 +17,19 @@ addBtn.addEventListener("click", function (e) {
   addTxt.value = "";
 
   showNotes();
-});
+};
+let blueBtn = document.getElementById("blue");
+rxjs.fromEvent(blueBtn, 'click')
+        .subscribe(() => blue()
+        );
+let redBtn = document.getElementById("red");
+rxjs.fromEvent(redBtn, 'click')
+        .subscribe(() => red()
+        );
+let greenBtn = document.getElementById("green");
+rxjs.fromEvent(greenBtn, 'click')
+        .subscribe(() => green()
+        );
 function blue() {
   color = document.getElementById("blue").value;
   showNotes();
