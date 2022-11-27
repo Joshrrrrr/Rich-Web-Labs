@@ -46,30 +46,35 @@ function green() {
 // show elements from localStorage
 function showNotes() {
   let notes = localStorage.getItem("notes");
-
+  let notesContainer = document.getElementById("notes");
   if (notes == null) notesObj = [];
   else notesObj = JSON.parse(notes);
-
-  let html = "";
+  while (notesContainer.firstChild) {
+    notesContainer.removeChild(notesContainer.lastChild);
+  }
   // use internal css for the noteCards so changing the color and text is easy
   notesObj.forEach(function (element, index) {
-    html += `<div class="noteCard"
-			style="width:18rem;margin-right: 50px;margin-bottom: 50px;
-			background-color:${color}">
-				<div class="card-body">
-					<p class="card-text">${element}</p>
-				<button id="${index}" onclick=
-					"deleteNote(this.id)">
-					Delete
-				</button>
-			</div>
-		</div>`;
+    const note = document.createElement('div');
+    note.setAttribute("id", "note-" + index);
+    note.setAttribute("class", "noteCard");
+    note.setAttribute("style",`"width:18rem;margin-right: 50px;margin-bottom: 50px; background-color:${color}"`);
+    notesContainer.appendChild(note);
+    const notebody = document.createElement('div');
+    notebody.setAttribute("class", "card-body");
+    note.appendChild(notebody);
+    const p = document.createElement('p');
+    p.setAttribute("class", "card-text");
+    p.innerHTML=element;
+    notebody.appendChild(p);
+    const delBtn = document.createElement('button');
+    delBtn.innerHTML = "Delete";
+    delBtn.setAttribute("id", "del" + index);
+    notebody.appendChild(delBtn);
   });
 
   let notesElm = document.getElementById("notes");
   // check if there are any notes in notesObj
-  if (notesObj.length != 0) notesElm.innerHTML = html;
-  else notesElm.innerHTML = "Nothing to show";
+  if (notesObj.length == 0) notesElm.innerHTML = "Nothing to show";
 }
 
 // delete a note
