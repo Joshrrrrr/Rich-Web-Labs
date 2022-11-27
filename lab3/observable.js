@@ -60,7 +60,7 @@ function showNotes() {
     const note = document.createElement('div');
     note.setAttribute("id", "note-" + index);
     note.setAttribute("class", "noteCard");
-    note.setAttribute("style",`"width:18rem;margin-right: 50px;margin-bottom: 50px; background-color:${color}"`);
+    note.setAttribute("style","width:18rem;margin-right: 50px;margin-bottom: 50px; background-color:"+color);
     //append to the note container div I made in html
     notesContainer.appendChild(note);
     //Body of note setting class
@@ -81,6 +81,9 @@ function showNotes() {
     delBtn.setAttribute("id", "del" + index);
     //append button to the notebody element above
     notebody.appendChild(delBtn);
+    rxjs.fromEvent(delBtn, 'click')
+        .subscribe(() => deleteNote(index)
+        );
   });
 
   let notesElm = document.getElementById("notes");
