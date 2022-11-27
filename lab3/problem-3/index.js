@@ -84,6 +84,12 @@ function showNotes() {
     rxjs.fromEvent(delBtn, 'click')
         .subscribe(() => deleteNote(index)
         );
+    //Create add sub note button element
+    const subBtn = document.createElement('button');
+    subBtn.innerHTML = "Add sub note";
+    subBtn.setAttribute("id", "sub" + index);
+    //append button to the notebody element above
+    notebody.appendChild(subBtn);
   });
 
   let notesElm = document.getElementById("notes");
