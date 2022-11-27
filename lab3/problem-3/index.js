@@ -90,6 +90,9 @@ function showNotes() {
     subBtn.setAttribute("id", "sub" + index);
     //append button to the notebody element above
     notebody.appendChild(subBtn);
+    rxjs.fromEvent(subBtn, 'click')
+        .subscribe(() => addSubNote(subBtn.parentElement)
+        );
   });
 
   let notesElm = document.getElementById("notes");
