@@ -1,4 +1,4 @@
-[Rich web repo](https://github.com/alanb-02/rich-web-app)
+[Rich web repo](https://github.com/Joshrrrrr/lab1/)
 
 # LAB 2
 Problem-1  Phone directory that allows user to input name, phone number, and email. There is also the feature to search through the numbers and sort by the name.
