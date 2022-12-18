@@ -1,13 +1,20 @@
 import React, { useRef} from "react";
 function App() {
   const noteTextRef = useRef()
+  var color = "white"
 
   function handleAddNote(e){
     let addTxt = noteTextRef.current.value
     if(addTxt === '') return
     console.log(addTxt)
+    noteTextRef.current.value = null
   }
 
+  function handleColorNote(e){
+    color = e.target.value
+    console.log(color)
+  }
+  
   return (
     <>
     <div>
