@@ -1,6 +1,13 @@
 import React, { useRef} from "react";
 function App() {
   const noteTextRef = useRef()
+
+  function handleAddNote(e){
+    let addTxt = noteTextRef.current.value
+    if(addTxt === '') return
+    console.log(addTxt)
+  }
+
   return (
     <>
     <div>
@@ -11,11 +18,11 @@ function App() {
 				</h1>
 				<div class="form-group">
 					<textarea class="form-control"
-						id="addTxt">
+						id="addTxt" ref={noteTextRef}>
 					</textarea>
 				</div>
 				<button
-					id="addBtn">
+					id="addBtn" onClick={handleAddNote}>
 					Add Note
 				</button>
 				<button
