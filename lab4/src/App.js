@@ -2,6 +2,8 @@ import React, { useRef} from "react";
 function App() {
   const noteTextRef = useRef()
   var color = "white"
+  const delBtnId = React.createRef();
+
   var notesObj = [];
 
   function handleAddNote(e){
@@ -24,11 +26,22 @@ function App() {
     showNotes()
   }
 
+  function handleDelNote(e){
+    let deleteId = delBtnId.current.id;
+    console.log(deleteId)
+    let notes = localStorage.getItem("notes");
+    if (notes == null) notesObj = [];
+    else notesObj = JSON.parse(notes);
+    notesObj.splice(deleteId, 1);
+    localStorage.setItem("notes", JSON.stringify(notesObj));
+    showNotes();
+  }
+
   function showNotes() {
     let notes = localStorage.getItem("notes");
 
     if (notes == null){
-      let notesObj = [];
+      notesObj = [];
     }
     else notesObj = JSON.parse(notes);
 
@@ -41,8 +54,7 @@ function App() {
 			background-color:${color}">
 				<div class="card-body">
 					<p class="card-text">${element}</p>
-				<button id="${index}" onclick=
-					"deleteNote(this.id)">
+				<button id="${index}">
 					Delete
 				</button>
 			</div>
@@ -53,8 +65,14 @@ function App() {
     // check if there are any notes in notesObj
     if (notesObj.length !== 0) notesElm.innerHTML = html;
     else notesElm.innerHTML = "Nothing to show";
+    var delBtns = [];
+
+    notesObj.forEach(function (element, index) {
+      delBtns[index] = document.getElementById(index);
+      delBtns[index].ref = {delBtnId}
+    })
   }
-  
+
   return (
     <>
     <div>
@@ -73,15 +91,15 @@ function App() {
 					Add Note
 				</button>
 				<button
-					id="blue" value="blue" onclick="blue()">
+					id="blue" value="blue" onClick={handleColorNote}>
 					blue
 				</button>
 				<button
-					id="red" value="red" onclick="red()">
+					id="red" value="red" onClick={handleColorNote}>
 					red
 				</button>
 				<button
-					id="green" value="green" onclick="green()">
+					id="green" value="green" onClick={handleColorNote}>
 					green
 				</button>
 			</div>
