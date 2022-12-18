@@ -1,4 +1,6 @@
+import React, { useRef} from "react";
 function App() {
+  const noteTextRef = useRef()
   return (
     <>
     <div>
